@@ -263,13 +263,13 @@ declare class canvasDatagrid {
     /**
      * Applies the computed css styles to the grid.  In some browsers, changing directives in attached style sheets does not automatically update the styles in this component.  It is necessary to call this method to update in these cases.
      */
-    static applyComponentStyle(): void;
+    applyComponentStyle(): void;
     /**
      * A formatting function.  Must be a member of (property of) {@link canvasDatagrid.formatters} and match a type from one of the {@link canvasDatagrid.header}s in {@link canvasDatagrid.schema}.
      * @param e - Formatting event object.
      * @param e.cell - Cell being formatted.
      */
-    static formatter(e: {
+    formatter(e: {
         cell: canvasDatagrid.cell;
     }): void;
     /**
@@ -277,18 +277,18 @@ declare class canvasDatagrid {
      * @param value - The current value being checked.
      * @param filterFor - The value being filtered against.
      */
-    static filter(value: string, filterFor: string): void;
+    filter(value: string, filterFor: string): void;
     /**
      * A sorter function.  Must be a member of (property of) {@link canvasDatagrid.sorters} and match a type from one of the {@link canvasDatagrid.header}s in {@link canvasDatagrid.schema}.
      * @param columnName - Name of the column being sorted.
      * @param direction - Direction of the column being sorted, either `asc` or `desc`.
      */
-    static sorter(columnName: string, direction: string): void;
+    sorter(columnName: string, direction: string): void;
     /**
      * Ends editing, optionally aborting the edit.
      * @param abort - When true, abort the edit.
      */
-    static endEdit(abort: boolean): void;
+    endEdit(abort: boolean): void;
     /**
      * Begins editing at cell x, row y.
      * @param x - The column index of the cell to edit.
@@ -298,123 +298,123 @@ declare class canvasDatagrid {
      * the user to navigate to adjacent cells instead of moving the text cursor around
      * (default is false, and means user is in 'edit' mode).
      */
-    static beginEditAt(x: number, y: number, inEnterMode: boolean): void;
+    beginEditAt(x: number, y: number, inEnterMode: boolean): void;
     /**
      * Redraws the grid. No matter what the change, this is the only method required to refresh everything.
      */
-    static draw(): void;
+    draw(): void;
     /**
      * Adds an event listener to the given event.
      * @param ev - The name of the event to subscribe to.
      * @param fn - The event procedure to execute when the event is raised.
      */
-    static addEventListener(ev: string, fn: (...params: any[]) => any): void;
+    addEventListener(ev: string, fn: (...params: any[]) => any): void;
     /**
      * Removes the given listener function from the given event.  Must be an actual reference to the function that was bound.
      * @param ev - The name of the event to unsubscribe from.
      * @param fn - The event procedure to execute when the event is raised.
      */
-    static removeEventListener(ev: string, fn: (...params: any[]) => any): void;
+    removeEventListener(ev: string, fn: (...params: any[]) => any): void;
     /**
      * Fires the given event, passing an event object to the event subscribers.
      * @param ev - The name of the event to dispatch.
      * @param e - The event object.
      */
-    static dispatchEvent(ev: number, e: number): void;
+    dispatchEvent(ev: number, e: number): void;
     /**
      * Releases grid resources and removes grid elements.
      */
-    static dispose(): void;
+    dispose(): void;
     /**
      * Appends the grid to another element later.  Not implemented.
      * @param el - The element to append the grid to.
      */
-    static appendTo(el: number): void;
+    appendTo(el: number): void;
     /**
      * Removes focus from the grid.
      */
-    static blur(): void;
+    blur(): void;
     /**
      * Focuses on the grid.
      */
-    static focus(): void;
+    focus(): void;
     /**
      * Gets an array of currently registered MIME types.
      */
-    static getDataTypes(): void;
+    getDataTypes(): void;
     /**
      * Converts a integer into a letter A - ZZZZZ...
      * @param n - The number to convert.
      */
-    static integerToAlpha(n: column): void;
+    integerToAlpha(n: column): void;
     /**
      * Inserts a new column before the specified index into the schema.
      * @param c - The column to insert into the schema.
      * @param index - The index of the column to insert before.
      */
-    static insertColumn(c: column, index: number): void;
+    insertColumn(c: column, index: number): void;
     /**
      * Deletes a column from the schema at the specified index.
      * @param index - The index of the column to delete.
      */
-    static deleteColumn(index: number): void;
+    deleteColumn(index: number): void;
     /**
      * Adds a new column into the schema.
      * @param c - The column to add to the schema.
      */
-    static addColumn(c: column): void;
+    addColumn(c: column): void;
     /**
      * Deletes a row from the dataset at the specified index.
      * @param index - The index of the row to delete.
      */
-    static deleteRow(index: number): void;
+    deleteRow(index: number): void;
     /**
      * Inserts a new row into the dataset before the specified index.
      * @param d - data.
      * @param index - The index of the row to insert before.
      */
-    static insertRow(d: any, index: number): void;
+    insertRow(d: any, index: number): void;
     /**
      * Adds a new row into the dataset.
      * @param d - data.
      */
-    static addRow(d: any): void;
+    addRow(d: any): void;
     /**
      * Sets the height of a given row by index number.
      * @param rowIndex - The index of the row to set.
      * @param height - Height to set the row to.
      */
-    static setRowHeight(rowIndex: number, height: number): void;
+    setRowHeight(rowIndex: number, height: number): void;
     /**
      * Sets the width of a given column by index number.
      * @param colIndex - The index of the column to set.
      * @param width - Width to set the column to.
      */
-    static setColumnWidth(colIndex: number, width: number): void;
+    setColumnWidth(colIndex: number, width: number): void;
     /**
      * Removes any changes to the width of the columns due to user or api interaction, setting them back to the schema or style default.
      */
-    static resetColumnWidths(): void;
+    resetColumnWidths(): void;
     /**
      * Removes any changes to the height of the rows due to user or api interaction, setting them back to the schema or style default.
      */
-    static resetRowHeights(): void;
+    resetRowHeights(): void;
     /**
      * Sets the value of the filter.
      * @param column - Name of the column to filter.
      * @param value - The value to filter for.
      */
-    static setFilter(column: string, value: string): void;
+    setFilter(column: string, value: string): void;
     /**
      * Returns the number of pixels to scroll down to line up with row rowIndex.
      * @param rowIndex - The row index of the row to scroll find.
      */
-    static findRowScrollTop(rowIndex: number): void;
+    findRowScrollTop(rowIndex: number): void;
     /**
      * Returns the number of pixels to scroll to the left to line up with column columnIndex.
      * @param columnIndex - The column index of the column to find.
      */
-    static findColumnScrollLeft(columnIndex: number): void;
+    findColumnScrollLeft(columnIndex: number): void;
     /**
      * Scrolls to the cell at columnIndex x, and rowIndex y.  If you define both rowIndex and columnIndex additional calculations can be made to center the cell using the target cell's height and width.  Defining only one rowIndex or only columnIndex will result in simpler calculations.
      * @param x - The column index of the cell to scroll to.
@@ -422,12 +422,12 @@ declare class canvasDatagrid {
      * @param [offsetX = 0] - Percentage offset the cell should be from the left edge (not including headers).  The default is 0, meaning the cell will appear at the left edge. Valid values are 0 through 1. 1 = Left, 0 = Right, 0.5 = Center.
      * @param [offsetY = 0] - Percentage offset the cell should be from the top edge (not including headers).  The default is 0, meaning the cell will appear at the top edge. Valid values are 0 through 1. 1 = Bottom, 0 = Top, 0.5 = Center.
      */
-    static gotoCell(x: number, y: number, offsetX?: number, offsetY?: number): void;
+    gotoCell(x: number, y: number, offsetX?: number, offsetY?: number): void;
     /**
      * Scrolls the row y.
      * @param y - The row index of the cell to scroll to.
      */
-    static gotoRow(y: number): void;
+    gotoRow(y: number): void;
     /**
      * Add a button into the cell.
      * @param columnIndex - The column index of the cell to to add a button.
@@ -436,17 +436,17 @@ declare class canvasDatagrid {
      * @param items - a list of items to add into button menu.
      * @param imgSrc - icon path to add into button.
      */
-    static addButton(columnIndex: number, rowIndex: number, offset: any, items: any, imgSrc: string): void;
+    addButton(columnIndex: number, rowIndex: number, offset: any, items: any, imgSrc: string): void;
     /**
      * Expand/Collapse CellTree.
      * @param treeData - The array of cellTree to expand or collapse.
      */
-    static toggleCellCollapseTree(treeData: any[]): void;
+    toggleCellCollapseTree(treeData: any[]): void;
     /**
      * Expand/Collapse CellTree.
      * @param treeData - The array of cellTree to expand or collapse.
      */
-    static expandCollapseCellTree(treeData: any[]): void;
+    expandCollapseCellTree(treeData: any[]): void;
     /**
      * Scrolls the cell at cell x, row y into view if it is not already.
      * @param x - The column index of the cell to scroll into view.
@@ -454,71 +454,71 @@ declare class canvasDatagrid {
      * @param [offsetX = 0] - Percentage offset the cell should be from the left edge (not including headers).  The default is 0, meaning the cell will appear at the left edge. Valid values are 0 through 1. 1 = Left, 0 = Right, 0.5 = Center.
      * @param [offsetY = 0] - Percentage offset the cell should be from the top edge (not including headers).  The default is 0, meaning the cell will appear at the top edge. Valid values are 0 through 1. 1 = Bottom, 0 = Top, 0.5 = Center.
      */
-    static scrollIntoView(x: number, y: number, offsetX?: number, offsetY?: number): void;
+    scrollIntoView(x: number, y: number, offsetX?: number, offsetY?: number): void;
     /**
      * Sets the active cell. Requires redrawing.
      * @param x - The column index of the cell to set active.
      * @param y - The row index of the cell to set active.
      */
-    static setActiveCell(x: number, y: number): void;
+    setActiveCell(x: number, y: number): void;
     /**
      * Collapse a tree grid by row index.
      * @param index - The index of the row to collapse.
      */
-    static collapseTree(index: number): void;
+    collapseTree(index: number): void;
     /**
      * Expands a tree grid by row index.
      * @param index - The index of the row to expand.
      */
-    static expandTree(index: number): void;
+    expandTree(index: number): void;
     /**
      * Toggles tree grid open and close by row index.
      * @param index - The index of the row to toggle.
      */
-    static toggleTree(index: number): void;
+    toggleTree(index: number): void;
     /**
      * Returns a header from the schema by name.
      * @param name - The name of the column to resize.
      * @returns header with the selected name, or undefined.
      */
-    static getHeaderByName(name: string): header;
+    getHeaderByName(name: string): header;
     /**
      * Hide column/columns
      * @param beginColumnOrderIndex - The begin column order index
      * @param [endColumnOrderIndex] - The end column order index
      */
-    static hideColumns(beginColumnOrderIndex: number, endColumnOrderIndex?: number): void;
+    hideColumns(beginColumnOrderIndex: number, endColumnOrderIndex?: number): void;
     /**
      * Unihde column/columns
      * @param beginColumnOrderIndex - The begin column order index
      * @param [endColumnOrderIndex] - The end column order index
      */
-    static unhideColumns(beginColumnOrderIndex: number, endColumnOrderIndex?: number): void;
+    unhideColumns(beginColumnOrderIndex: number, endColumnOrderIndex?: number): void;
     /**
      * Hide rows
      * @param beginRowIndex - The begin row index
      * @param endRowIndex - The end row index
      */
-    static hideRows(beginRowIndex: number, endRowIndex: number): void;
+    hideRows(beginRowIndex: number, endRowIndex: number): void;
     /**
      * Unhide rows
      * @param beginRowIndex - The begin row index
      * @param endRowIndex - The end row index
      */
-    static unhideRows(beginRowIndex: number, endRowIndex: number): void;
+    unhideRows(beginRowIndex: number, endRowIndex: number): void;
     /**
      * Resizes a column to fit the longest value in the column. Call without a value to resize all columns.
      * Warning, can be slow on very large record sets (1m records ~3-5 seconds on an i7).
      * @param name - The name of the column to resize.
      */
-    static fitColumnToValues(name: string): void;
+    fitColumnToValues(name: string): void;
     /**
      * Checks if a cell is currently visible.
      * @param columnIndex - The column index of the cell to check.
      * @param rowIndex - The row index of the cell to check.
      * @returns when true, the cell is visible, when false the cell is not currently drawn.
      */
-    static isCellVisible(columnIndex: number, rowIndex: number): boolean;
+    isCellVisible(columnIndex: number, rowIndex: number): boolean;
     /**
      * Sets the order of the data.
      * @param columnName - Name of the column to be sorted.
@@ -526,161 +526,161 @@ declare class canvasDatagrid {
      * @param [sortFunction] - When defined, override the default sorting method defined in the column's schema and use this one.
      * @param [dontSetStorageData] - Don't store this setting for future use.
      */
-    static order(columnName: number, direction: string, sortFunction?: (...params: any[]) => any, dontSetStorageData?: boolean): void;
+    order(columnName: number, direction: string, sortFunction?: (...params: any[]) => any, dontSetStorageData?: boolean): void;
     /**
      * Grouping columns
      * @param firstColumnName - Name of the first column to be grouped.
      * @param lastColumnName - Name of the last column to be grouped.
      */
-    static groupColumns(firstColumnName: number | string, lastColumnName: number | string): void;
+    groupColumns(firstColumnName: number | string, lastColumnName: number | string): void;
     /**
      * Grouping columns
      * @param rowIndexFrom - The row index which is the beginning of the group
      * @param rowIndexTo - The row index which is the end of the group
      */
-    static groupRows(rowIndexFrom: number, rowIndexTo: number): void;
+    groupRows(rowIndexFrom: number, rowIndexTo: number): void;
     /**
      * Remove grouping columns
      * @param firstColumnName - Name of the first column to be grouped.
      * @param lastColumnName - Name of the last column to be grouped.
      */
-    static removeGroupColumns(firstColumnName: number | string, lastColumnName: number | string): void;
+    removeGroupColumns(firstColumnName: number | string, lastColumnName: number | string): void;
     /**
      * Remove grouping columns
      * @param rowIndexFrom - The row index which is the beginning of the group
      * @param rowIndexTo - The row index which is the end of the group
      */
-    static removeGroupRows(rowIndexFrom: number, rowIndexTo: number): void;
+    removeGroupRows(rowIndexFrom: number, rowIndexTo: number): void;
     /**
      * Toggle(expand/collapsed) grouping columns
      * @param firstColumnName - Name of the first column to be grouped.
      * @param lastColumnName - Name of the last column to be grouped.
      */
-    static toggleGroupColumns(firstColumnName: number | string, lastColumnName: number | string): void;
+    toggleGroupColumns(firstColumnName: number | string, lastColumnName: number | string): void;
     /**
      * Toggle(expand/collapsed) grouping rows
      * @param rowIndexFrom - The row index which is the beginning of the group
      * @param rowIndexTo - The row index which is the end of the group
      */
-    static toggleGroupRows(rowIndexFrom: number, rowIndexTo: number): void;
+    toggleGroupRows(rowIndexFrom: number, rowIndexTo: number): void;
     /**
      * Moves data in the provided selection to another position in the grid.  Moving data off the edge of the schema (columns/x) will truncate data.
      * @param sel - 2D array representing selected rows and columns.  `canvasDatagrid.selections` is in this format and can be used here.
      * @param x - The column index to start inserting the selection at.
      * @param y - The row index to start inserting the selection at.
      */
-    static moveTo(sel: any[], x: number, y: number): void;
+    moveTo(sel: any[], x: number, y: number): void;
     /**
      * Get the column group info given column belongs to
      * @param columnIndex - Column index.
      */
-    static getGroupsColumnBelongsTo(columnIndex: number): { from: number; to: number; collapsed: boolean; }[];
+    getGroupsColumnBelongsTo(columnIndex: number): { from: number; to: number; collapsed: boolean; }[];
     /**
      * Get the row group info given row belongs to
      * @param rowIndex - Row index.
      */
-    static getGroupsRowBelongsTo(rowIndex: number): { from: number; to: number; collapsed: boolean; }[];
+    getGroupsRowBelongsTo(rowIndex: number): { from: number; to: number; collapsed: boolean; }[];
     /**
      * Checks if a given column is visible.
      * @param columnIndex - Column index.
      * @returns When true, the column is visible.
      */
-    static isColumnVisible(columnIndex: number): boolean;
+    isColumnVisible(columnIndex: number): boolean;
     /**
      * Checks if a given row is visible.
      * @param rowIndex - Row index.
      * @returns When true, the row is visible.
      */
-    static isRowVisible(rowIndex: number): boolean;
+    isRowVisible(rowIndex: number): boolean;
     /**
      * Gets the cell at columnIndex and rowIndex.
      * @param x - Column index.
      * @param y - Row index.
      * @returns cell at the selected location.
      */
-    static getVisibleCellByIndex(x: number, y: number): cell;
+    getVisibleCellByIndex(x: number, y: number): cell;
     /**
      * Get an unhide indicator at grid pixel coordinate x and y.
      * @param x - Number of pixels from the left.
      * @param y - Number of pixels from the top.
      */
-    static getUnhideIndicator(x: number, y: number): void;
+    getUnhideIndicator(x: number, y: number): void;
     /**
      * Get a column group at grid pixel coordinate x and y.
      * @param x - Number of pixels from the left.
      * @param y - Number of pixels from the top.
      */
-    static getColumnGroupAt(x: number, y: number): void;
+    getColumnGroupAt(x: number, y: number): void;
     /**
      * Get a row group at grid pixel coordinate x and y.
      * @param x - Number of pixels from the left.
      * @param y - Number of pixels from the top.
      */
-    static getRowGroupAt(x: number, y: number): void;
+    getRowGroupAt(x: number, y: number): void;
     /**
      * Gets the cell at grid pixel coordinate x and y.  Author's note.  This function ties drawing and events together.  This is a very complex function and is core to the component.
      * @param x - Number of pixels from the left.
      * @param y - Number of pixels from the top.
      * @returns cell at the selected location.
      */
-    static getCellAt(x: number, y: number): cell;
+    getCellAt(x: number, y: number): cell;
     /**
      * Returns an auto generated schema based on data structure.
      * @returns schema A schema based on the first item in the data array.
      */
-    static getSchemaFromData(): schema;
+    getSchemaFromData(): schema;
     /**
      * Clears the change log grid.changes that keeps track of changes to the data set.
      * This does not undo changes or alter data it is simply a convince array to keep
      * track of changes made to the data since last this method was called.
      */
-    static clearChangeLog(): void;
+    clearChangeLog(): void;
     /**
      * Returns the maximum text width for a given column by column name.
      * @param name - The name of the column to calculate the value's width of.
      * @returns The number of pixels wide the maximum width value in the selected column.
      */
-    static findColumnMaxTextLength(name: string): number;
+    findColumnMaxTextLength(name: string): number;
     /**
      * Gets the total width of all header columns.
      */
-    static getHeaderWidth(): void;
+    getHeaderWidth(): void;
     /**
      * Gets the height of a row by index.
      * @param rowIndex - The row index to lookup.
      */
-    static getRowHeight(rowIndex: number): void;
+    getRowHeight(rowIndex: number): void;
     /**
      * Gets the width of a column by index.
      * @param columnIndex - The column index to lookup.
      */
-    static getColumnWidth(columnIndex: number): void;
+    getColumnWidth(columnIndex: number): void;
     /**
      * Returns true if the selected columnIndex is selected on every row.
      * @param columnIndex - The column index to check.
      */
-    static isColumnSelected(columnIndex: number): void;
+    isColumnSelected(columnIndex: number): void;
     /**
      * Returns true if the selected rowIndex is selected on every column.
      * @param rowIndex - The row index to check.
      */
-    static isRowSelected(rowIndex: number): void;
+    isRowSelected(rowIndex: number): void;
     /**
      * Removes the selection.
      * @param dontDraw - Suppress the draw method after the selection change.
      */
-    static selectNone(dontDraw: boolean): void;
+    selectNone(dontDraw: boolean): void;
     /**
      * Selects every visible cell.
      * @param dontDraw - Suppress the draw method after the selection change.
      */
-    static selectAll(dontDraw: boolean): void;
+    selectAll(dontDraw: boolean): void;
     /**
      * Moves the current selection relative to the its current position.  Note: this method does not move the selected data, just the selection itself.
      * @param offsetX - The number of columns to offset the selection.
      * @param offsetY - The number of rows to offset the selection.
      */
-    static moveSelection(offsetX: number, offsetY: number): void;
+    moveSelection(offsetX: number, offsetY: number): void;
     /**
      * Gets the bounds of current selection.
      * @param [sanitized] - sanitize the bound object if the value of thie paramater is `true`
@@ -690,18 +690,18 @@ declare class canvasDatagrid {
      * This is used for keeping compatibility with existing APIs.
      * 2. When the parameter `sanitized` is true. The result will be null if there haven't selections.
      */
-    static getSelectionBounds(sanitized?: boolean): rect;
+    getSelectionBounds(sanitized?: boolean): rect;
     /**
      * Deletes currently selected data.
      * @param dontDraw - Suppress the draw method after the selection change.
      */
-    static deleteSelectedData(dontDraw: boolean): void;
+    deleteSelectedData(dontDraw: boolean): void;
     /**
      * Runs the defined method on each selected cell.
      * @param fn - The function to execute.  The signature of the function is: (data, rowIndex, columnName).
      * @param expandToRow - When true the data in the array is expanded to the entire row.
      */
-    static forEachSelectedCell(fn: number, expandToRow: number): void;
+    forEachSelectedCell(fn: number, expandToRow: number): void;
     /**
      * Selects a column.
      * @param columnIndex - The column index to select.
@@ -709,7 +709,7 @@ declare class canvasDatagrid {
      * @param shift - When true, behaves as if you were holding shift when you clicked the column.
      * @param suppressEvent - When true, prevents the selectionchanged event from firing.
      */
-    static selectColumn(columnIndex: number, toggleSelectMode: boolean, shift: boolean, suppressEvent: boolean): void;
+    selectColumn(columnIndex: number, toggleSelectMode: boolean, shift: boolean, suppressEvent: boolean): void;
     /**
      * Selects a row.
      * @param rowIndex - The row index to select.
@@ -717,12 +717,12 @@ declare class canvasDatagrid {
      * @param shift - When true, behaves as if you were holding shift when you clicked the row.
      * @param supressSelectionchangedEvent - When true, prevents the selectionchanged event from firing.
      */
-    static selectRow(rowIndex: number, ctrl: boolean, shift: boolean, supressSelectionchangedEvent: boolean): void;
+    selectRow(rowIndex: number, ctrl: boolean, shift: boolean, supressSelectionchangedEvent: boolean): void;
     /**
      * Selects an area of the grid.
      * @param [bounds] - A rect object representing the selected values.
      */
-    static selectArea(bounds?: rect, ctrl?: boolean): void;
+    selectArea(bounds?: rect, ctrl?: boolean): void;
     /**
      * Selected rows.  Same as the `data` property but filtered for the rows the user has cells selected in.  If any cell in the row is selected, all data for that row will appear in this array.
     */
